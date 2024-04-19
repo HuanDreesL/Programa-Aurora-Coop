@@ -4,6 +4,10 @@ void main(){
 //produto.adicionaEstoque(3);
 //produto.descontaEstoque(2);
 //produto.calculaPrecoTotal(1);
+
+//CLASSE CLIENTE BRASÃO 
+//Cliente cliente = Cliente('Brasão', 12345, 5000);
+//cliente.descontarLimiteCredito(400);
 }
 
 class Produto{
@@ -40,7 +44,7 @@ void calculaPrecoTotal(int qtd){
 class Cliente{
   
   String? nome;
-  String? cnpj;
+  int? cnpj;
   double? limiteCredito;
 
   Cliente(
@@ -48,4 +52,21 @@ class Cliente{
     this.cnpj,
     this.limiteCredito
   );
+void descontarLimiteCredito(double descontarLimite){
+  limiteCredito = limiteCredito! - descontarLimite;
+  print("Desconto do Limite de Credito\nValor descontado:$descontarLimite \nLimite Atual: $limiteCredito"); 
+}
+}
+class Venda{
+  
+  Cliente? cliente;
+  List<Produto>? produtos;
+  double? valorTotal;
+
+  Venda(
+    this.cliente,
+    this.produtos,
+    this.valorTotal
+  );
+  
 }
