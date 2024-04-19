@@ -1,5 +1,8 @@
 void main(){
 
+Produto produto = Produto('Linguiça Pernil', 450, 5.0, 18,89, 3);
+Cliente cliente = Cliente('Brasão', 12345678, 5000);
+
 }
 class Produto{
 
@@ -47,4 +50,16 @@ void descontarLimiteCredito(double descontarLimite){
   limiteCredito = limiteCredito! - descontarLimite;
   print("Desconto do Limite de Credito\nValor descontado:$descontarLimite \nLimite Atual: $limiteCredito"); 
 }
+}
+class Venda{
+
+  Cliente? cliente;
+  List<Produto>? produtos;
+  double? valorTotal;
+
+  Venda(
+    this.cliente,
+    this.produtos,
+    this.valorTotal
+  );
 }
