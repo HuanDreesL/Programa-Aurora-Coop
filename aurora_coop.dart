@@ -1,4 +1,3 @@
-
 void main(){
 
 Produto produto1 = Produto('Linguiça Pernil', 450, 5.0, 18,89, 3);
@@ -9,6 +8,9 @@ Venda venda1 = Venda(cliente1, [produto1], 283.35);
 Venda venda2 = Venda(cliente2, [produto2], 32.97);
 venda1.venda(12345678, [450]);
 venda2.venda(87654321, [550]);
+
+Empresa empresa = Empresa('Aurora Coop', 83310441000117,[cliente1, cliente2], [produto1, produto2], [venda1, venda2]);
+empresa.calculaFaturamento();
 
 }
 class Produto{
@@ -90,13 +92,26 @@ void venda(int cnpj, List<int> cdProduto){
 }
 class Empresa{
 
+  String? nome;
+  int? cnpj;
+  double? faturamento;
   List<Cliente>? cliente;
   List<Produto>? produtos;
   List<Venda>? vendas;
 
   Empresa(
+    this.nome,
+    this.cnpj,
+
     this.cliente,
     this.produtos,
     this.vendas
   );
+void calculaFaturamento(){
+  double faturamento = 0;
+  for(Venda venda in vendas!){
+    faturamento += venda.valorTotal!;
+  }
+  print("Faturamento Total de Vendas\nEmpresa: $nome\nCNPJ: $cnpj\nFaturamento: $faturamento");
+}
 }
