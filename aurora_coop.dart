@@ -1,7 +1,14 @@
+
 void main(){
 
-Produto produto = Produto('Linguiça Pernil', 450, 5.0, 18,89, 3);
-Cliente cliente = Cliente('Brasão', 12345678, 5000);
+Produto produto1 = Produto('Linguiça Pernil', 450, 5.0, 18,89, 3);
+Produto produto2 = Produto('Empanado', 550, 1.0, 10,99, 3);
+Cliente cliente1 = Cliente('Brasão', 12345678, 5000);
+Cliente cliente2 = Cliente('Alfa', 87654321, 5000);
+Venda venda1 = Venda(cliente1, [produto1], 283.35);
+Venda venda2 = Venda(cliente2, [produto2], 32.97);
+venda1.venda(12345678, [450]);
+venda2.venda(87654321, [550]);
 
 }
 class Produto{
@@ -61,5 +68,35 @@ class Venda{
     this.cliente,
     this.produtos,
     this.valorTotal
+  );
+void venda(int cnpj, List<int> cdProduto){
+
+  for(Produto produto in produtos!){
+
+    if(cnpj > 1 && valorTotal !< cliente!.limiteCredito! && produtos!.length >= 1 && produto.estoque !> 1){
+
+      cliente?.descontarLimiteCredito(valorTotal!);
+
+      print("Compra Realizada com Sucesso\nCliente: ${cliente!.nome}\nCNPJ: ${cliente!.cnpj}\nNome do Produto:${produto.nome}\nCódigo do Produto: ${produto.cdProduto}\nValor Total ${valorTotal}");
+    
+    }
+    else{
+
+      print("Compra não Realizada!");
+  
+    }
+  }
+}
+}
+class Empresa{
+
+  List<Cliente>? cliente;
+  List<Produto>? produtos;
+  List<Venda>? vendas;
+
+  Empresa(
+    this.cliente,
+    this.produtos,
+    this.vendas
   );
 }
