@@ -37,14 +37,21 @@ void venda(String cnpj, List<int> cdProduto){
       print("CNPJ do cliente inválido\nCNPJ inserido: $cnpj");
         todasAsCondicoes = false;
     }
-    
+
     for(Produto produto in produtos!){
+
       if(produto.estoque! <= 0){
         print("Produto sem estoque!");
           todasAsCondicoes = false;      
       }
+
       if(qtd! > produto.qtd!){
         print("Falta de produto!\nQuantidade Pedida: $qtd\nQuantidade Restante: ${produto.qtd}\n");
+          todasAsCondicoes = false;
+      }
+
+      if(!cdProduto.contains(produto.cdProduto)){
+        print("Código do produto valido!");
           todasAsCondicoes = false;
       }
     }
@@ -52,6 +59,7 @@ void venda(String cnpj, List<int> cdProduto){
     if(todasAsCondicoes){
       print("Compra Realizada com sucesso\nCliente: ${cliente!.nome}\nCNPJ: ${cliente!.cnpj}\nCodigo do produto: ${cdProduto}\nValor Total: ${valorTotal}\n");
       cliente!.descontarLimiteCredito(valorTotal!);
+
     }
   }
 }
