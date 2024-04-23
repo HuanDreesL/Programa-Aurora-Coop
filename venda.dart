@@ -32,8 +32,8 @@ void venda(String cnpj, List<int> cdProduto){
       print("CNPJ do cliente inválido");
     }
     else{
-        print("Compra Realizada com sucesso\n");
-        cliente!.descontarLimiteCredito(valorTotal!);
+      print("Compra Realizada com sucesso\nCliente: ${cliente!.nome}\nCNPJ: ${cliente!.cnpj}\nCodigo do produto: ${cdProduto}\nValor Total: ${valorTotal}\n");
+      cliente!.descontarLimiteCredito(valorTotal!);
     }
     /*
     for(var i in cdProduto){
