@@ -15,7 +15,7 @@ class Produto{
     this.estoque,
     this.qtd
   );
-  
+
 void adicionaEstoque(int qtd){
   estoque = estoque! + qtd;
   print("Produto Aurora adicionado com Sucesso!\nProduto: $nome\nCódigo do Produto: $cdProduto\nQuantidade: $qtd\n");

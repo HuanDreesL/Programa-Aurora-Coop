@@ -1,17 +1,17 @@
-Empresa empresa = Empresa('Aurora Coop', "83.310.441/0001-17", [], [], []);
-
 stdout.write("PROGRAMA AURORA COOP");
-stdout.write("\n0 - Sair\n1 - Cadastrar Produto\n2 - Cadastrar Cliente\n3 - Realizar Venda\n4 - Ver Faturamento\n:");
-int decisao = int.parse(stdin.readLineSync()!);
+  stdout.write("\n0 - Sair\n1 - Cadastrar Produto\n2 - Cadastrar Cliente\n3 - Realizar Venda\n4 - Ver Faturamento\n:");
+  int decisao = int.parse(stdin.readLineSync()!);
 
-switch(decisao){
+  Empresa empresa = Empresa('Aurora Coop', "83.310.441/0001-17", [], [], []);
+
+  switch(decisao){
   case 0:
   print("Saindo do Programa...");
-
   break;
   case 1:
   print("Cadastro de Produtos");
     empresa.produtos!.add(Produto('Linguiça Pernil', 450, 5.0, 18.90, 3, 3));
+    print(empresa.produtos);
   break;
   case 2:
   print("Cadastrar Clientes");
