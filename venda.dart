@@ -14,20 +14,31 @@ class Venda{
   );
 void venda(String cnpj, List<int> cdProduto){
 
+    if(cliente == null){
+      print('Nome do Cliente inválido!');
+    }
+    if(produtos == null){
+      print("Nenhum produto encontrado!");
+    }
     for(Produto produto in produtos!){
-    
-      if(cliente == null
-        || produtos == null
-        || produto.estoque! <= 0 
-        || valorTotal !> cliente!.limiteCredito!
-        || cliente!.cnpj != cnpj){
-
-       print("Não foi possivel realizar Compra\n");
-      }
-      else{
-        print("Compra Realizada com sucesso\n");
-        cliente!.descontarLimiteCredito(valorTotal!);
+      if(produto.estoque! <= 0){
+        print("Produto sem estoque!");
       }
     }
+    if(valorTotal! > cliente!.limiteCredito!){
+      print("Saldo Insuficiente!");
+    }
+    if(cliente!.cnpj! != cnpj){
+      print("CNPJ do cliente inválido");
+    }
+    else{
+        print("Compra Realizada com sucesso\n");
+        cliente!.descontarLimiteCredito(valorTotal!);
+    }
+    /*
+    for(var i in cdProduto){
+      Produto a =  produtos!.where((e)=>e.cdProduto == i).first;
+    } 
+    */     
   }
 }

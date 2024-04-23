@@ -1,3 +1,5 @@
+Empresa empresa = Empresa('Aurora Coop', "83.310.441/0001-17", [], [], []);
+
 stdout.write("PROGRAMA AURORA COOP");
 stdout.write("\n0 - Sair\n1 - Cadastrar Produto\n2 - Cadastrar Cliente\n3 - Realizar Venda\n4 - Ver Faturamento\n:");
 int decisao = int.parse(stdin.readLineSync()!);
@@ -5,22 +7,22 @@ int decisao = int.parse(stdin.readLineSync()!);
 switch(decisao){
   case 0:
   print("Saindo do Programa...");
+
   break;
   case 1:
   print("Cadastro de Produtos");
-    //Produto produto = Produto('Linguiça Pernil', 43567, 5.0, 18.89, 0, 0);
-    //produto.adicionaEstoque(3);
-    //produto.descontaEstoque(2);
-    //produto.calculaPrecoTotal(1);
+    empresa.produtos!.add(Produto('Linguiça Pernil', 450, 5.0, 18.90, 3, 3));
   break;
   case 2:
   print("Cadastrar Clientes");
-    //Cliente cliente = Cliente('Brasão', 12345, 5000);
-    //cliente.descontarLimiteCredito(400);
+    empresa.cliente!.add(Cliente('Brasão', "012345", 5000));
   break;
   case 3:
   print("Realizar Venda");
+    empresa.vendas!.add(Venda(Cliente('Brasão', "012345", 5000),[Produto('Linguiça Pernil', 450, 5.0, 18.90, 0, 0)], 500));
   break;
   case 4:
   print("Faturamentos");
+    empresa.calculaFaturamento();
+  break;
 }

@@ -25,5 +25,4 @@ venda2.venda("012345", [900]);
 
 Empresa empresa = Empresa('Aurora', "83.310.441/0001-17", [cliente1], [produto1, produto2], [venda1, venda2]);
 empresa.calculaFaturamento();
-
 }

@@ -24,6 +24,7 @@ void calculaFaturamento(){
   for(Venda venda in vendas!){
     faturamento += venda.valorTotal!;
   }
+  
   print("Faturamento Total de Vendas\nEmpresa: $nome\nCNPJ: $cnpj\nFaturamento: $faturamento\n");
 }
 }

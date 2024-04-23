@@ -17,11 +17,11 @@ class Produto{
   );
   
 void adicionaEstoque(int qtd){
-  estoque = estoque !+ qtd;
+  estoque = estoque! + qtd;
   print("Produto Aurora adicionado com Sucesso!\nProduto: $nome\nCódigo do Produto: $cdProduto\nQuantidade: $qtd\n");
 }
 void descontaEstoque(int qtd){
-  estoque = estoque !- qtd;
+  estoque = estoque! - qtd;
   print("Produto Aurora descontado do estoque\nProduto: $nome\nCódigo do Produto: $cdProduto\nQuantidade descontada: $qtd\n");
 }
 void calculaPrecoTotal(int qtd){
