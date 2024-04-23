@@ -1,7 +1,7 @@
 class Cliente{
   
   String? nome;
-  int? cnpj;
+  String? cnpj;
   double? limiteCredito;
 
   Cliente(
@@ -11,6 +11,6 @@ class Cliente{
   );
 void descontarLimiteCredito(double descontarLimite){
   limiteCredito = limiteCredito! - descontarLimite;
-  print("Desconto do Limite de Credito\nValor descontado:$descontarLimite \nLimite Atual: $limiteCredito"); 
+  print("Desconto do Limite de Credito\nValor descontado:$descontarLimite \nLimite Atual: $limiteCredito\n"); 
 }
 }

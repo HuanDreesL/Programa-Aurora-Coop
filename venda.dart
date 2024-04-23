@@ -12,22 +12,22 @@ class Venda{
     this.produtos,
     this.valorTotal
   );
-void venda(int cnpj, List<int> cdProduto){
+void venda(String cnpj, List<int> cdProduto){
 
-  for(Produto produto in produtos!){
-
-    if(cnpj > 1 && valorTotal !< cliente!.limiteCredito! && produtos!.length >= 1 && produto.estoque !> 1){
-
-      cliente?.descontarLimiteCredito(valorTotal!);
-
-      print("Compra Realizada com Sucesso\nCliente: ${cliente!.nome}\nCNPJ: ${cliente!.cnpj}\nNome do Produto:${produto.nome}\nCódigo do Produto: ${produto.cdProduto}\nValor Total ${valorTotal}");
+    for(Produto produto in produtos!){
     
-    }
-    else{
+      if(cliente == null
+        || produtos == null
+        || produto.estoque! <= 0 
+        || valorTotal !> cliente!.limiteCredito!
+        || cliente!.cnpj != cnpj){
 
-      print("Compra não Realizada!");
-  
+       print("Não foi possivel realizar Compra\n");
+      }
+      else{
+        print("Compra Realizada com sucesso\n");
+        cliente!.descontarLimiteCredito(valorTotal!);
+      }
     }
   }
-}
 }
